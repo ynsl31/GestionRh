@@ -1,0 +1,71 @@
+﻿@model SolutionE_RH_v1._5.Models.BULLETIN_DE_PAIE
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h3 style="color:red">Are you sure you want to delete this?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SALAIRE_BASE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SALAIRE_BASE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SALARE_BRUT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SALARE_BRUT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NET_APAYER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NET_APAYER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATE_ENTRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE_ENTRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STATUS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STATUS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMPLOYEE.CIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMPLOYEE.CIN)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

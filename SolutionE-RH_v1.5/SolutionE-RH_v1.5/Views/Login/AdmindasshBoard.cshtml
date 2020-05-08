@@ -1,0 +1,92 @@
+﻿
+@{
+    ViewBag.Title = "AdmindasshBoard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Modern Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
+    <title>Admin Dashboard</title>
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/layout/css/bootstrap.min.css" rel='stylesheet' type='text/css' />
+    <!-- Custom CSS -->
+    <link href="~/Content/layout/css/style.css" rel='stylesheet' type='text/css' />
+    <!-- Graph CSS -->
+    <link href="~/Content/layout/css/lines.css" rel='stylesheet' type='text/css' />
+    <link href="~/Content/layout/css/font-awesome.css" rel="stylesheet">
+    <!-- jQuery -->
+    <script src="~/Content/layout/js/jquery.min.js"></script>
+    <!----webfonts--->
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css'>
+    <!---//webfonts--->
+    <!-- Nav CSS -->
+    <link href="~/Content/layout/css/custom.css" rel="stylesheet">
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="~/Content/layout/js/metisMenu.min.js"></script>
+    <script src="~/Content/layout/js/custom.js"></script>
+    <!-- Graph JavaScript -->
+    <script src="~/Content/layout/js/d3.v3.js"></script>
+    <script src="~/Content/layout/js/rickshaw.js"></script>
+</head>
+<body>
+    <center><h2>Administrateur Dashboard</h2></center>
+    <center>
+        <div class="welcome">
+            <span class="border border-success">
+                @if (Session["Matrecule"] != null)
+                {
+
+                    <text>
+                        Welcome @Session["EmpName"].ToString() </text>
+                }
+            </span>
+        </div>
+    </center>
+    </br>
+    <div class="col_3">
+        <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                <i class="pull-left fa fa-thumbs-up icon-rounded"></i>
+                <div class="stats">
+                    <h5><strong>2</strong></h5>
+                    <span>employee en deplacements</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                <i class="pull-left fa fa-users user1 icon-rounded"></i>
+                <div class="stats">
+                    <h5><strong>16</strong></h5>
+                    <span>Visiteurs</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3 widget widget1">
+            <div class="r3_counter_box">
+                <i class="pull-left fa fa-users< user2 icon-rounded"></i>
+                <div class="stats">
+                    <h5><strong>10</strong></h5>
+                    <span>Employee</span>
+                </div>
+            </div>
+        </div>
+        @*<div class="col-md-3 widget">
+                <div class="r3_counter_box">
+                    <i class="pull-left fa fa-dollar dollar1 icon-rounded"></i>
+                    <div class="stats">
+                        <h5><strong>$450</strong></h5>
+                        <span>Profit Today</span>
+                    </div>
+                </div>
+            </div>*@
+        <div class="clearfix"> </div>
+    </div>
+</body>
+</html>

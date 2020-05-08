@@ -1,0 +1,79 @@
+﻿@model IEnumerable<SolutionE_RH_v1._5.Models.BULLETIN_DE_PAIE>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script>
+
+        $('#demoGrid').dataTable({
+            "processing": true, // for show progress bar
+            "serverSide": true, // for process server side
+            "filter": true, // this is for disable filter (search box)
+            "orderMulti": false, // for disable multiple column at once
+            "pageLength": 5,
+
+            "ajax": {
+                "url": "/Demo/LoadData",
+                "type": "POST",
+                "datatype": "json"
+            },
+        });
+</script>
+<center><h2>Les Bulletin de paies</h2></center>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table id="demoGrid" class="table table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SALAIRE_BASE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SALARE_BRUT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NET_APAYER)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DATE_ENTRE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.STATUS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMPLOYEE.CIN)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SALAIRE_BASE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SALARE_BRUT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NET_APAYER)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DATE_ENTRE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.STATUS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMPLOYEE.CIN)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.REF_BULL }) |
+            @Html.ActionLink("Details", "Details", new { id=item.REF_BULL }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.REF_BULL })
+        </td>
+    </tr>
+}
+
+</table>

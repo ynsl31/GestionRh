@@ -1,0 +1,43 @@
+﻿@model SolutionE_RH_v1._5.Models.DOCUMENT
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DOCUMENT</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LB_DOC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LB_DOC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FICH_DOC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FICH_DOC)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESC_DOC)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESC_DOC)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_DOC }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

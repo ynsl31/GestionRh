@@ -1,0 +1,67 @@
+﻿@model SolutionE_RH_v1._5.Models.FORMATION
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FORMATION</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LIB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LIB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATE_DEPUT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE_DEPUT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NB_JOUR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NB_JOUR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NB_PARTICIPE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NB_PARTICIPE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESC_SUJET)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESC_SUJET)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOM_FORMATEUR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOM_FORMATEUR)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.REF_FORMATION }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

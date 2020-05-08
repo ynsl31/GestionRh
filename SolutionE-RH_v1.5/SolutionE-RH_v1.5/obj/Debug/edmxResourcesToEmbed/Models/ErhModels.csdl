@@ -1,0 +1,299 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="E_RHModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="ABSENCE">
+    <Key>
+      <PropertyRef Name="ID_ABS" />
+    </Key>
+    <Property Name="ID_ABS" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MATRECULE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NB_JOUR" Type="Int32" Nullable="false" />
+    <Property Name="JUSTIFIER" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RAIS_ABS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_ABSENCE_EMPLOYEE" FromRole="ABSENCE" ToRole="EMPLOYEE" />
+  </EntityType>
+  <EntityType Name="AVIS_DM">
+    <Key>
+      <PropertyRef Name="ID_AVIS" />
+    </Key>
+    <Property Name="ID_DEMANDE" Type="Decimal" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="ID_AVIS" Type="Decimal" Precision="20" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AVIS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RAIS_AVIS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="DATE_AVIS" Type="Binary" MaxLength="8" FixedLength="true" annotation:StoreGeneratedPattern="Computed" />
+    <NavigationProperty Name="DEMANDE_CONGE" Relationship="Self.FK_AVIS_DM_DEMANDE_CONGE" FromRole="AVIS_DM" ToRole="DEMANDE_CONGE" />
+  </EntityType>
+  <EntityType Name="BULLETIN_DE_PAIE">
+    <Key>
+      <PropertyRef Name="REF_BULL" />
+    </Key>
+    <Property Name="REF_BULL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MATRECULE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SALAIRE_BASE" Type="Double" Nullable="false" />
+    <Property Name="SALARE_BRUT" Type="Double" Nullable="false" />
+    <Property Name="NET_APAYER" Type="Double" Nullable="false" />
+    <Property Name="DATE_ENTRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="STATUS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_BULLETIN_DE_PAIE_EMPLOYEE" FromRole="BULLETIN_DE_PAIE" ToRole="EMPLOYEE" />
+  </EntityType>
+  <EntityType Name="DEMANDE_CONGE">
+    <Key>
+      <PropertyRef Name="ID_DEMANDE" />
+    </Key>
+    <Property Name="ID_DEMANDE" Type="Decimal" Precision="20" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MATRECULE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PERIODE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DATE_DEBUT" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="FICHIER_JUST" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="AVIS_DM" Relationship="Self.FK_AVIS_DM_DEMANDE_CONGE" FromRole="DEMANDE_CONGE" ToRole="AVIS_DM" />
+    <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_DEMANDE_CONGE_EMPLOYEE" FromRole="DEMANDE_CONGE" ToRole="EMPLOYEE" />
+  </EntityType>
+  <EntityType Name="DEPART">
+    <Key>
+      <PropertyRef Name="ID_DEP" />
+    </Key>
+    <Property Name="ID_DEP" Type="Decimal" Precision="20" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MATRECULE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DATE_DEP" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MOTIF_DEP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_DEPART_EMPLOYEE" FromRole="DEPART" ToRole="EMPLOYEE" />
+  </EntityType>
+  <EntityType Name="DEPLACEMENT">
+    <Key>
+      <PropertyRef Name="ID_DEPLACEMENT" />
+    </Key>
+    <Property Name="ID_DEPLACEMENT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MATRECULE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DATE_DEPART" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DATE_RETOUR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESTINATION" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FRAIS_DEP" Type="Double" Nullable="false" />
+    <Property Name="MOYENS_DEP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Avis_dep" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_DEPLACEMENT_Emp" FromRole="DEPLACEMENT" ToRole="EMPLOYEE" />
+  </EntityType>
+  <EntityType Name="DOCUMENT">
+    <Key>
+      <PropertyRef Name="ID_DOC" />
+    </Key>
+    <Property Name="ID_DOC" Type="Decimal" Precision="20" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LB_DOC" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="FICH_DOC" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESC_DOC" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EMPLOYEE">
+    <Key>
+      <PropertyRef Name="MATRECULE" />
+    </Key>
+    <Property Name="MATRECULE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CIN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="NOM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PRENOM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SEXE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DATE_NAIS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SITUATION_FAM" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NB_ENFANT" Type="Int32" />
+    <Property Name="PHOTO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DATE_DEBCONTRAT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DATE_FINCONT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="SERVICE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ADRESSE" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="TEL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EMAIL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="DATE_EMBAUCHE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="NB_JOURCONGE" Type="Int32" />
+    <NavigationProperty Name="ABSENCEs" Relationship="Self.FK_ABSENCE_EMPLOYEE" FromRole="EMPLOYEE" ToRole="ABSENCE" />
+    <NavigationProperty Name="BULLETIN_DE_PAIE" Relationship="Self.FK_BULLETIN_DE_PAIE_EMPLOYEE" FromRole="EMPLOYEE" ToRole="BULLETIN_DE_PAIE" />
+    <NavigationProperty Name="DEMANDE_CONGE" Relationship="Self.FK_DEMANDE_CONGE_EMPLOYEE" FromRole="EMPLOYEE" ToRole="DEMANDE_CONGE" />
+    <NavigationProperty Name="DEPARTs" Relationship="Self.FK_DEPART_EMPLOYEE" FromRole="EMPLOYEE" ToRole="DEPART" />
+    <NavigationProperty Name="DEPLACEMENTs" Relationship="Self.FK_DEPLACEMENT_Emp" FromRole="EMPLOYEE" ToRole="DEPLACEMENT" />
+    <NavigationProperty Name="PRIMEs" Relationship="Self.FK_PRIME_EMPLOYEE" FromRole="EMPLOYEE" ToRole="PRIME" />
+    <NavigationProperty Name="USERs" Relationship="Self.FK_USER_EMP" FromRole="EMPLOYEE" ToRole="USER" />
+  </EntityType>
+  <EntityType Name="FORMATION">
+    <Key>
+      <PropertyRef Name="REF_FORMATION" />
+    </Key>
+    <Property Name="REF_FORMATION" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="LIB" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DATE_DEPUT" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NB_JOUR" Type="Int32" Nullable="false" />
+    <Property Name="NB_PARTICIPE" Type="Int32" Nullable="false" />
+    <Property Name="DESC_SUJET" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NOM_FORMATEUR" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRIME">
+    <Key>
+      <PropertyRef Name="ID_PRIME" />
+    </Key>
+    <Property Name="ID_PRIME" Type="Decimal" Precision="20" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MATRECULE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MOTIF" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MONTANT" Type="Single" Nullable="false" />
+    <Property Name="DATE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_PRIME_EMPLOYEE" FromRole="PRIME" ToRole="EMPLOYEE" />
+  </EntityType>
+  <EntityType Name="USER">
+    <Key>
+      <PropertyRef Name="ID_USER" />
+    </Key>
+    <Property Name="ID_USER" Type="Int32" Nullable="false" />
+    <Property Name="LOGIN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PASSWORD" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CATEG" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MATRECULE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="EMPLOYEE" Relationship="Self.FK_USER_EMP" FromRole="USER" ToRole="EMPLOYEE" />
+  </EntityType>
+  <Association Name="FK_ABSENCE_EMPLOYEE">
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+    <End Role="ABSENCE" Type="Self.ABSENCE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="MATRECULE" />
+      </Principal>
+      <Dependent Role="ABSENCE">
+        <PropertyRef Name="MATRECULE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AVIS_DM_DEMANDE_CONGE">
+    <End Role="DEMANDE_CONGE" Type="Self.DEMANDE_CONGE" Multiplicity="1" />
+    <End Role="AVIS_DM" Type="Self.AVIS_DM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEMANDE_CONGE">
+        <PropertyRef Name="ID_DEMANDE" />
+      </Principal>
+      <Dependent Role="AVIS_DM">
+        <PropertyRef Name="ID_DEMANDE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BULLETIN_DE_PAIE_EMPLOYEE">
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+    <End Role="BULLETIN_DE_PAIE" Type="Self.BULLETIN_DE_PAIE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="MATRECULE" />
+      </Principal>
+      <Dependent Role="BULLETIN_DE_PAIE">
+        <PropertyRef Name="MATRECULE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEMANDE_CONGE_EMPLOYEE">
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+    <End Role="DEMANDE_CONGE" Type="Self.DEMANDE_CONGE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="MATRECULE" />
+      </Principal>
+      <Dependent Role="DEMANDE_CONGE">
+        <PropertyRef Name="MATRECULE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEPART_EMPLOYEE">
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+    <End Role="DEPART" Type="Self.DEPART" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="MATRECULE" />
+      </Principal>
+      <Dependent Role="DEPART">
+        <PropertyRef Name="MATRECULE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEPLACEMENT_Emp">
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+    <End Role="DEPLACEMENT" Type="Self.DEPLACEMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="MATRECULE" />
+      </Principal>
+      <Dependent Role="DEPLACEMENT">
+        <PropertyRef Name="MATRECULE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRIME_EMPLOYEE">
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+    <End Role="PRIME" Type="Self.PRIME" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="MATRECULE" />
+      </Principal>
+      <Dependent Role="PRIME">
+        <PropertyRef Name="MATRECULE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USER_EMP">
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+    <End Role="USER" Type="Self.USER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="MATRECULE" />
+      </Principal>
+      <Dependent Role="USER">
+        <PropertyRef Name="MATRECULE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="E_RHEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="ABSENCEs" EntityType="Self.ABSENCE" />
+    <EntitySet Name="AVIS_DM" EntityType="Self.AVIS_DM" />
+    <EntitySet Name="BULLETIN_DE_PAIE" EntityType="Self.BULLETIN_DE_PAIE" />
+    <EntitySet Name="DEMANDE_CONGE" EntityType="Self.DEMANDE_CONGE" />
+    <EntitySet Name="DEPARTs" EntityType="Self.DEPART" />
+    <EntitySet Name="DEPLACEMENTs" EntityType="Self.DEPLACEMENT" />
+    <EntitySet Name="DOCUMENTs" EntityType="Self.DOCUMENT" />
+    <EntitySet Name="EMPLOYEEs" EntityType="Self.EMPLOYEE" />
+    <EntitySet Name="FORMATIONs" EntityType="Self.FORMATION" />
+    <EntitySet Name="PRIMEs" EntityType="Self.PRIME" />
+    <EntitySet Name="USERs" EntityType="Self.USER" />
+    <AssociationSet Name="FK_ABSENCE_EMPLOYEE" Association="Self.FK_ABSENCE_EMPLOYEE">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+      <End Role="ABSENCE" EntitySet="ABSENCEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AVIS_DM_DEMANDE_CONGE" Association="Self.FK_AVIS_DM_DEMANDE_CONGE">
+      <End Role="DEMANDE_CONGE" EntitySet="DEMANDE_CONGE" />
+      <End Role="AVIS_DM" EntitySet="AVIS_DM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BULLETIN_DE_PAIE_EMPLOYEE" Association="Self.FK_BULLETIN_DE_PAIE_EMPLOYEE">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+      <End Role="BULLETIN_DE_PAIE" EntitySet="BULLETIN_DE_PAIE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEMANDE_CONGE_EMPLOYEE" Association="Self.FK_DEMANDE_CONGE_EMPLOYEE">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+      <End Role="DEMANDE_CONGE" EntitySet="DEMANDE_CONGE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEPART_EMPLOYEE" Association="Self.FK_DEPART_EMPLOYEE">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+      <End Role="DEPART" EntitySet="DEPARTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEPLACEMENT_Emp" Association="Self.FK_DEPLACEMENT_Emp">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+      <End Role="DEPLACEMENT" EntitySet="DEPLACEMENTs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRIME_EMPLOYEE" Association="Self.FK_PRIME_EMPLOYEE">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+      <End Role="PRIME" EntitySet="PRIMEs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USER_EMP" Association="Self.FK_USER_EMP">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEEs" />
+      <End Role="USER" EntitySet="USERs" />
+    </AssociationSet>
+    <EntitySet Name="sysdiagrams" EntityType="E_RHModel.sysdiagram" />
+  </EntityContainer>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+</Schema>

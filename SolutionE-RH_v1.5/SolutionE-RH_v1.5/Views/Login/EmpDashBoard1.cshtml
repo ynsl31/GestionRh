@@ -1,0 +1,70 @@
+﻿@model IEnumerable<SolutionE_RH_v1._5.Models.DEPLACEMENT>
+
+@{
+    ViewBag.Title = "EmpDashBoard1";
+    Layout = "~/Views/Shared/_LayoutEmp.cshtml";
+}
+
+<h2>EmpDashBoard1</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DATE_DEPART)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DATE_RETOUR)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DESTINATION)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FRAIS_DEP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MOYENS_DEP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Avis_dep)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMPLOYEE.CIN)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DATE_DEPART)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DATE_RETOUR)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DESTINATION)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FRAIS_DEP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MOYENS_DEP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Avis_dep)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMPLOYEE.CIN)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_DEPLACEMENT }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_DEPLACEMENT }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_DEPLACEMENT })
+        </td>
+    </tr>
+}
+
+</table>

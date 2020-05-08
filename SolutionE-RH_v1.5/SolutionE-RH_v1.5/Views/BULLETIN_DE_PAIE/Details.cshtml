@@ -1,0 +1,67 @@
+﻿@model SolutionE_RH_v1._5.Models.BULLETIN_DE_PAIE
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BULLETIN_DE_PAIE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SALAIRE_BASE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SALAIRE_BASE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SALARE_BRUT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SALARE_BRUT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NET_APAYER)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NET_APAYER)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATE_ENTRE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE_ENTRE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.STATUS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STATUS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMPLOYEE.CIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMPLOYEE.CIN)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.REF_BULL }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

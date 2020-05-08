@@ -1,0 +1,52 @@
+﻿@model IEnumerable<SolutionE_RH_v1._5.Models.AVIS_DM>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AVIS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RAIS_AVIS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DATE_AVIS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DEMANDE_CONGE.MATRECULE)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AVIS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RAIS_AVIS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DATE_AVIS)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DEMANDE_CONGE.MATRECULE)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_AVIS }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_AVIS }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_AVIS })
+        </td>
+    </tr>
+}
+
+</table>

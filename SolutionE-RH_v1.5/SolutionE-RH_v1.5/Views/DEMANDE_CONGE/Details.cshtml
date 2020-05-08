@@ -1,0 +1,59 @@
+﻿@model SolutionE_RH_v1._5.Models.DEMANDE_CONGE
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DEMANDE_CONGE</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DATE_ENVOI)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE_ENVOI)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PERIODE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PERIODE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATE_DEBUT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE_DEBUT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FICHIER_JUST)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FICHIER_JUST)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMPLOYEE.CIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMPLOYEE.CIN)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_DEMANDE }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

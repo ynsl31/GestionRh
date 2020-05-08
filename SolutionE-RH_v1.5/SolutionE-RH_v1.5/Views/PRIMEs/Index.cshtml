@@ -1,0 +1,67 @@
+﻿@model IEnumerable<SolutionE_RH_v1._5.Models.PRIME>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script>
+
+        $('#demoGrid').dataTable({
+            "processing": true, // for show progress bar
+            "serverSide": true, // for process server side
+            "filter": true, // this is for disable filter (search box)
+            "orderMulti": false, // for disable multiple column at once
+            "pageLength": 5,
+
+            "ajax": {
+                "url": "/Demo/LoadData",
+                "type": "POST",
+                "datatype": "json"
+            },
+        });
+</script>
+<center><h4>Les Primes</h4></center>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table id="demoGrid" class="table table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MOTIF)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MONTANT)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DATE)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMPLOYEE.CIN)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MOTIF)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MONTANT)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DATE)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMPLOYEE.CIN)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_PRIME }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_PRIME }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_PRIME })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,24 @@
+﻿
+    @{
+        ViewBag.Title = "EmpDashBoard";
+        Layout = "~/Views/Shared/_LayoutEmp.cshtml";
+    }
+
+    <center><h2>EMPLOYEE DASHBOARD</h2></center>
+
+
+
+    <center>
+        <div class="welcome">
+            <span class="border border-success">
+                @if (Session["Matrecule"] != null)
+                {
+
+                    <text>
+                        Welcome @Session["EmpName"].ToString() </text>
+                }
+            </span>
+        </div>
+    </center>
+   
+     

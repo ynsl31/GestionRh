@@ -1,0 +1,46 @@
+﻿@model IEnumerable<SolutionE_RH_v1._5.Models.DOCUMENT>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.LB_DOC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FICH_DOC)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DESC_DOC)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LB_DOC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FICH_DOC)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DESC_DOC)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_DOC }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_DOC }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_DOC })
+        </td>
+    </tr>
+}
+
+</table>

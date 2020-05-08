@@ -1,0 +1,85 @@
+﻿@model SolutionE_RH_v1._5.Models.DEMANDE_CONGE
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*<header>
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+        <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    </header>
+    <script>
+
+
+        $(document).ready(function () {
+            $("#DATE_DEBUT").datepicker({
+                dateFormat: "dd-mm-yy",
+                minDate: -0,
+                maxDate: "+0M +0D"
+
+            });
+        });
+    </script>*@
+<!-- Code to wire up your DatePicker -->
+<script type="text/javascript">
+    $(function () {
+        // This will make every element with the class "date-picker" into a DatePicker element
+        $('.date-picker').datepicker();
+    })
+</script>
+<center><h2>Demande de congé</h2></center>
+
+@using (Html.BeginForm("Create", "DEMANDE_CONGE", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+{
+
+
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.MATRECULE, "MATRECULE", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("MATRECULE", null, htmlAttributes: new { @class = "form-control1" })
+                @Html.ValidationMessageFor(model => model.MATRECULE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PERIODE, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.PERIODE, new { htmlAttributes = new { @class = "form-control1" } })
+                @Html.ValidationMessageFor(model => model.PERIODE, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DATE_DEBUT, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DATE_DEBUT, new { htmlAttributes = new { @class = "date-picker" , style = "border: 1px solid #e0e0e0;padding: 5px 8px;color: #616161;background: #fff;box - shadow: none !important; width:100%;font - size: 0.85em;font - weight: 300;height: 40px;border - radius: 0;-webkit - appearance: none; " } })
+                                @Html.ValidationMessageFor(model => model.DATE_DEBUT, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FICHIER_JUST, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBox("file", "", new { type = "file" }) <br />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

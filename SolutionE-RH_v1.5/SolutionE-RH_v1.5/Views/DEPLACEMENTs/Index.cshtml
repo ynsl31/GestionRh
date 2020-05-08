@@ -1,0 +1,90 @@
+﻿@model IEnumerable<SolutionE_RH_v1._5.Models.DEPLACEMENT>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+
+        $('#demoGrid').dataTable({
+            "processing": true, // for show progress bar
+            "serverSide": true, // for process server side
+            "filter": true, // this is for disable filter (search box)
+            "orderMulti": false, // for disable multiple column at once
+            "pageLength": 5,
+
+            "ajax": {
+                "url": "/Demo/LoadData",
+                "type": "POST",
+                "datatype": "json"
+            },
+        });
+</script>
+
+<center><h2>Deplacements</h2></center>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<div style="height: 400px; overflow: auto; width:100%; margin:0 auto;">
+    <table id="demoGrid" class="table table-striped table-bordered dt-responsive nowrap" width="100%" cellspacing="0">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DATE_DEPART)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DATE_RETOUR)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DESTINATION)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FRAIS_DEP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MOYENS_DEP)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Avis_dep)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EMPLOYEE.MATRECULE)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DATE_DEPART)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DATE_RETOUR)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DESTINATION)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FRAIS_DEP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MOYENS_DEP)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Avis_dep)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EMPLOYEE.MATRECULE)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.ID_DEPLACEMENT }, htmlAttributes: new { @class = "badge badge-primary" }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.ID_DEPLACEMENT ,}, htmlAttributes: new { @class = "badge badge-primary" }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID_DEPLACEMENT }, htmlAttributes: new { @class = "badge badge-primary" })
+                </td>
+            </tr>
+        }
+
+    </table>
+</>

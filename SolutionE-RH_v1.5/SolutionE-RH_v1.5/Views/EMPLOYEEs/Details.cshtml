@@ -1,0 +1,138 @@
+﻿@model SolutionE_RH_v1._5.Models.EMPLOYEE
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<center><h2>Details de l'employee @Html.DisplayFor(model => model.NOM) </h2></center>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NOM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NOM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PRENOM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PRENOM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SEXE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SEXE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATE_NAIS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE_NAIS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SITUATION_FAM)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SITUATION_FAM)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NB_ENFANT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NB_ENFANT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATE_DEBCONTRAT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE_DEBCONTRAT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATE_FINCONT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE_FINCONT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SERVICE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SERVICE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ADRESSE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ADRESSE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TEL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TEL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMAIL)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATE_EMBAUCHE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE_EMBAUCHE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NB_JOURCONGE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NB_JOURCONGE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MATRECULE }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

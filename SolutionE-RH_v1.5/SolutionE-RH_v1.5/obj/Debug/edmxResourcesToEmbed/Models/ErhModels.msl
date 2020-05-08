@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="E_RHModelStoreContainer" CdmEntityContainer="E_RHEntities1">
+    <EntitySetMapping Name="ABSENCEs">
+      <EntityTypeMapping TypeName="E_RHModel.ABSENCE">
+        <MappingFragment StoreEntitySet="ABSENCE">
+          <ScalarProperty Name="ID_ABS" ColumnName="ID_ABS" />
+          <ScalarProperty Name="MATRECULE" ColumnName="MATRECULE" />
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+          <ScalarProperty Name="NB_JOUR" ColumnName="NB_JOUR" />
+          <ScalarProperty Name="JUSTIFIER" ColumnName="JUSTIFIER" />
+          <ScalarProperty Name="RAIS_ABS" ColumnName="RAIS_ABS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AVIS_DM">
+      <EntityTypeMapping TypeName="E_RHModel.AVIS_DM">
+        <MappingFragment StoreEntitySet="AVIS_DM">
+          <ScalarProperty Name="ID_DEMANDE" ColumnName="ID_DEMANDE" />
+          <ScalarProperty Name="ID_AVIS" ColumnName="ID_AVIS" />
+          <ScalarProperty Name="AVIS" ColumnName="AVIS" />
+          <ScalarProperty Name="RAIS_AVIS" ColumnName="RAIS_AVIS" />
+          <ScalarProperty Name="DATE_AVIS" ColumnName="DATE_AVIS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BULLETIN_DE_PAIE">
+      <EntityTypeMapping TypeName="E_RHModel.BULLETIN_DE_PAIE">
+        <MappingFragment StoreEntitySet="BULLETIN_DE_PAIE">
+          <ScalarProperty Name="REF_BULL" ColumnName="REF_BULL" />
+          <ScalarProperty Name="MATRECULE" ColumnName="MATRECULE" />
+          <ScalarProperty Name="SALAIRE_BASE" ColumnName="SALAIRE_BASE" />
+          <ScalarProperty Name="SALARE_BRUT" ColumnName="SALARE_BRUT" />
+          <ScalarProperty Name="NET_APAYER" ColumnName="NET_APAYER" />
+          <ScalarProperty Name="DATE_ENTRE" ColumnName="DATE_ENTRE" />
+          <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEMANDE_CONGE">
+      <EntityTypeMapping TypeName="E_RHModel.DEMANDE_CONGE">
+        <MappingFragment StoreEntitySet="DEMANDE_CONGE">
+          <ScalarProperty Name="ID_DEMANDE" ColumnName="ID_DEMANDE" />
+          <ScalarProperty Name="MATRECULE" ColumnName="MATRECULE" />
+          <ScalarProperty Name="PERIODE" ColumnName="PERIODE" />
+          <ScalarProperty Name="DATE_DEBUT" ColumnName="DATE_DEBUT" />
+          <ScalarProperty Name="FICHIER_JUST" ColumnName="FICHIER_JUST" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEPARTs">
+      <EntityTypeMapping TypeName="E_RHModel.DEPART">
+        <MappingFragment StoreEntitySet="DEPART">
+          <ScalarProperty Name="ID_DEP" ColumnName="ID_DEP" />
+          <ScalarProperty Name="MATRECULE" ColumnName="MATRECULE" />
+          <ScalarProperty Name="DATE_DEP" ColumnName="DATE_DEP" />
+          <ScalarProperty Name="MOTIF_DEP" ColumnName="MOTIF_DEP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEPLACEMENTs">
+      <EntityTypeMapping TypeName="E_RHModel.DEPLACEMENT">
+        <MappingFragment StoreEntitySet="DEPLACEMENT">
+          <ScalarProperty Name="ID_DEPLACEMENT" ColumnName="ID_DEPLACEMENT" />
+          <ScalarProperty Name="MATRECULE" ColumnName="MATRECULE" />
+          <ScalarProperty Name="DATE_DEPART" ColumnName="DATE_DEPART" />
+          <ScalarProperty Name="DATE_RETOUR" ColumnName="DATE_RETOUR" />
+          <ScalarProperty Name="DESTINATION" ColumnName="DESTINATION" />
+          <ScalarProperty Name="FRAIS_DEP" ColumnName="FRAIS_DEP" />
+          <ScalarProperty Name="MOYENS_DEP" ColumnName="MOYENS_DEP" />
+          <ScalarProperty Name="Avis_dep" ColumnName="Avis_dep" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOCUMENTs">
+      <EntityTypeMapping TypeName="E_RHModel.DOCUMENT">
+        <MappingFragment StoreEntitySet="DOCUMENT">
+          <ScalarProperty Name="ID_DOC" ColumnName="ID_DOC" />
+          <ScalarProperty Name="LB_DOC" ColumnName="LB_DOC" />
+          <ScalarProperty Name="FICH_DOC" ColumnName="FICH_DOC" />
+          <ScalarProperty Name="DESC_DOC" ColumnName="DESC_DOC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EMPLOYEEs">
+      <EntityTypeMapping TypeName="E_RHModel.EMPLOYEE">
+        <MappingFragment StoreEntitySet="EMPLOYEE">
+          <ScalarProperty Name="MATRECULE" ColumnName="MATRECULE" />
+          <ScalarProperty Name="CIN" ColumnName="CIN" />
+          <ScalarProperty Name="NOM" ColumnName="NOM" />
+          <ScalarProperty Name="PRENOM" ColumnName="PRENOM" />
+          <ScalarProperty Name="SEXE" ColumnName="SEXE" />
+          <ScalarProperty Name="DATE_NAIS" ColumnName="DATE_NAIS" />
+          <ScalarProperty Name="SITUATION_FAM" ColumnName="SITUATION_FAM" />
+          <ScalarProperty Name="NB_ENFANT" ColumnName="NB_ENFANT" />
+          <ScalarProperty Name="PHOTO" ColumnName="PHOTO" />
+          <ScalarProperty Name="DATE_DEBCONTRAT" ColumnName="DATE_DEBCONTRAT" />
+          <ScalarProperty Name="DATE_FINCONT" ColumnName="DATE_FINCONT" />
+          <ScalarProperty Name="SERVICE" ColumnName="SERVICE" />
+          <ScalarProperty Name="ADRESSE" ColumnName="ADRESSE" />
+          <ScalarProperty Name="TEL" ColumnName="TEL" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="DATE_EMBAUCHE" ColumnName="DATE_EMBAUCHE" />
+          <ScalarProperty Name="NB_JOURCONGE" ColumnName="NB_JOURCONGE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FORMATIONs">
+      <EntityTypeMapping TypeName="E_RHModel.FORMATION">
+        <MappingFragment StoreEntitySet="FORMATION">
+          <ScalarProperty Name="REF_FORMATION" ColumnName="REF_FORMATION" />
+          <ScalarProperty Name="LIB" ColumnName="LIB" />
+          <ScalarProperty Name="DATE_DEPUT" ColumnName="DATE_DEPUT" />
+          <ScalarProperty Name="NB_JOUR" ColumnName="NB_JOUR" />
+          <ScalarProperty Name="NB_PARTICIPE" ColumnName="NB_PARTICIPE" />
+          <ScalarProperty Name="DESC_SUJET" ColumnName="DESC_SUJET" />
+          <ScalarProperty Name="NOM_FORMATEUR" ColumnName="NOM_FORMATEUR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PRIMEs">
+      <EntityTypeMapping TypeName="E_RHModel.PRIME">
+        <MappingFragment StoreEntitySet="PRIME">
+          <ScalarProperty Name="ID_PRIME" ColumnName="ID_PRIME" />
+          <ScalarProperty Name="MATRECULE" ColumnName="MATRECULE" />
+          <ScalarProperty Name="MOTIF" ColumnName="MOTIF" />
+          <ScalarProperty Name="MONTANT" ColumnName="MONTANT" />
+          <ScalarProperty Name="DATE" ColumnName="DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERs">
+      <EntityTypeMapping TypeName="E_RHModel.USER">
+        <MappingFragment StoreEntitySet="USER">
+          <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+          <ScalarProperty Name="LOGIN" ColumnName="LOGIN" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="CATEG" ColumnName="CATEG" />
+          <ScalarProperty Name="MATRECULE" ColumnName="MATRECULE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="E_RHModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

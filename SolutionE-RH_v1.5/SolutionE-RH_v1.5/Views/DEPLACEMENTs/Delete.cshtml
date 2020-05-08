@@ -1,0 +1,81 @@
+﻿@model SolutionE_RH_v1._5.Models.DEPLACEMENT
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<h3 style="color:red">Are you sure you want to delete this?</h3>
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DATE_DEPART)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE_DEPART)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATE_RETOUR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE_RETOUR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESTINATION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESTINATION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FRAIS_DEP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FRAIS_DEP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MOYENS_DEP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MOYENS_DEP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Avis_dep)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Avis_dep)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMPLOYEE.CIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMPLOYEE.CIN)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

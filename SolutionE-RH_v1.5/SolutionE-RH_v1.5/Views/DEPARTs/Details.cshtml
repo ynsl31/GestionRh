@@ -1,0 +1,43 @@
+﻿@model SolutionE_RH_v1._5.Models.DEPART
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DEPART</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DATE_DEP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE_DEP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MOTIF_DEP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MOTIF_DEP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMPLOYEE.CIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMPLOYEE.CIN)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_DEP }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,75 @@
+﻿@model SolutionE_RH_v1._5.Models.DEPLACEMENT
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <center><h4>DEPLACEMENT</h4></center>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DATE_DEPART)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE_DEPART)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DATE_RETOUR)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DATE_RETOUR)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DESTINATION)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESTINATION)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FRAIS_DEP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FRAIS_DEP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MOYENS_DEP)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MOYENS_DEP)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Avis_dep)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Avis_dep)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EMPLOYEE.MATRECULE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EMPLOYEE.MATRECULE)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_DEPLACEMENT }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

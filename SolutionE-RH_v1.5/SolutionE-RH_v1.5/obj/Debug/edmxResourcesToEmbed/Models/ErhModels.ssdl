@@ -1,0 +1,283 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="E_RHModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ABSENCE">
+    <Key>
+      <PropertyRef Name="ID_ABS" />
+    </Key>
+    <Property Name="ID_ABS" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MATRECULE" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DATE" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="NB_JOUR" Type="int" Nullable="false" />
+    <Property Name="JUSTIFIER" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="RAIS_ABS" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AVIS_DM">
+    <Key>
+      <PropertyRef Name="ID_AVIS" />
+    </Key>
+    <Property Name="ID_DEMANDE" Type="numeric" Precision="20" Scale="0" Nullable="false" />
+    <Property Name="ID_AVIS" Type="numeric" Precision="20" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AVIS" Type="varchar" MaxLength="20" />
+    <Property Name="RAIS_AVIS" Type="text" />
+    <Property Name="DATE_AVIS" Type="timestamp" StoreGeneratedPattern="Computed" />
+  </EntityType>
+  <EntityType Name="BULLETIN_DE_PAIE">
+    <Key>
+      <PropertyRef Name="REF_BULL" />
+    </Key>
+    <Property Name="REF_BULL" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MATRECULE" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="SALAIRE_BASE" Type="float" Nullable="false" />
+    <Property Name="SALARE_BRUT" Type="float" Nullable="false" />
+    <Property Name="NET_APAYER" Type="float" Nullable="false" />
+    <Property Name="DATE_ENTRE" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="STATUS" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DEMANDE_CONGE">
+    <Key>
+      <PropertyRef Name="ID_DEMANDE" />
+    </Key>
+    <Property Name="ID_DEMANDE" Type="numeric" Precision="20" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MATRECULE" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PERIODE" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DATE_DEBUT" Type="datetime" Nullable="false" />
+    <Property Name="FICHIER_JUST" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DEPART">
+    <Key>
+      <PropertyRef Name="ID_DEP" />
+    </Key>
+    <Property Name="ID_DEP" Type="numeric" Precision="20" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MATRECULE" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DATE_DEP" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MOTIF_DEP" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DEPLACEMENT">
+    <Key>
+      <PropertyRef Name="ID_DEPLACEMENT" />
+    </Key>
+    <Property Name="ID_DEPLACEMENT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MATRECULE" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DATE_DEPART" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DATE_RETOUR" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DESTINATION" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="FRAIS_DEP" Type="float" Nullable="false" />
+    <Property Name="MOYENS_DEP" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Avis_dep" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DOCUMENT">
+    <Key>
+      <PropertyRef Name="ID_DOC" />
+    </Key>
+    <Property Name="ID_DOC" Type="numeric" Precision="20" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LB_DOC" Type="varchar" MaxLength="20" />
+    <Property Name="FICH_DOC" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DESC_DOC" Type="text" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EMPLOYEE">
+    <Key>
+      <PropertyRef Name="MATRECULE" />
+    </Key>
+    <Property Name="MATRECULE" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CIN" Type="varchar" MaxLength="10" />
+    <Property Name="NOM" Type="varchar" MaxLength="20" />
+    <Property Name="PRENOM" Type="varchar" MaxLength="20" />
+    <Property Name="SEXE" Type="varchar" MaxLength="20" />
+    <Property Name="DATE_NAIS" Type="varchar" MaxLength="20" />
+    <Property Name="SITUATION_FAM" Type="varchar" MaxLength="20" />
+    <Property Name="NB_ENFANT" Type="int" />
+    <Property Name="PHOTO" Type="varchar" MaxLength="50" />
+    <Property Name="DATE_DEBCONTRAT" Type="varchar" MaxLength="20" />
+    <Property Name="DATE_FINCONT" Type="varchar" MaxLength="20" />
+    <Property Name="SERVICE" Type="varchar" MaxLength="20" />
+    <Property Name="ADRESSE" Type="text" />
+    <Property Name="TEL" Type="varchar" MaxLength="20" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="20" />
+    <Property Name="DATE_EMBAUCHE" Type="varchar" MaxLength="20" />
+    <Property Name="NB_JOURCONGE" Type="int" />
+  </EntityType>
+  <EntityType Name="FORMATION">
+    <Key>
+      <PropertyRef Name="REF_FORMATION" />
+    </Key>
+    <Property Name="REF_FORMATION" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LIB" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="DATE_DEPUT" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="NB_JOUR" Type="int" Nullable="false" />
+    <Property Name="NB_PARTICIPE" Type="int" Nullable="false" />
+    <Property Name="DESC_SUJET" Type="text" Nullable="false" />
+    <Property Name="NOM_FORMATEUR" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="PRIME">
+    <Key>
+      <PropertyRef Name="ID_PRIME" />
+    </Key>
+    <Property Name="ID_PRIME" Type="numeric" Precision="20" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MATRECULE" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MOTIF" Type="varchar" MaxLength="30" Nullable="false" />
+    <Property Name="MONTANT" Type="real" Nullable="false" />
+    <Property Name="DATE" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="USER">
+    <Key>
+      <PropertyRef Name="ID_USER" />
+    </Key>
+    <Property Name="ID_USER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="LOGIN" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="PASSWORD" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="CATEG" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MATRECULE" Type="varchar" MaxLength="20" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ABSENCE_EMPLOYEE">
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+    <End Role="ABSENCE" Type="Self.ABSENCE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="MATRECULE" />
+      </Principal>
+      <Dependent Role="ABSENCE">
+        <PropertyRef Name="MATRECULE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_AVIS_DM_DEMANDE_CONGE">
+    <End Role="DEMANDE_CONGE" Type="Self.DEMANDE_CONGE" Multiplicity="1" />
+    <End Role="AVIS_DM" Type="Self.AVIS_DM" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEMANDE_CONGE">
+        <PropertyRef Name="ID_DEMANDE" />
+      </Principal>
+      <Dependent Role="AVIS_DM">
+        <PropertyRef Name="ID_DEMANDE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BULLETIN_DE_PAIE_EMPLOYEE">
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+    <End Role="BULLETIN_DE_PAIE" Type="Self.BULLETIN_DE_PAIE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="MATRECULE" />
+      </Principal>
+      <Dependent Role="BULLETIN_DE_PAIE">
+        <PropertyRef Name="MATRECULE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEMANDE_CONGE_EMPLOYEE">
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+    <End Role="DEMANDE_CONGE" Type="Self.DEMANDE_CONGE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="MATRECULE" />
+      </Principal>
+      <Dependent Role="DEMANDE_CONGE">
+        <PropertyRef Name="MATRECULE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEPART_EMPLOYEE">
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+    <End Role="DEPART" Type="Self.DEPART" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="MATRECULE" />
+      </Principal>
+      <Dependent Role="DEPART">
+        <PropertyRef Name="MATRECULE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEPLACEMENT_Emp">
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+    <End Role="DEPLACEMENT" Type="Self.DEPLACEMENT" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="MATRECULE" />
+      </Principal>
+      <Dependent Role="DEPLACEMENT">
+        <PropertyRef Name="MATRECULE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PRIME_EMPLOYEE">
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+    <End Role="PRIME" Type="Self.PRIME" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="MATRECULE" />
+      </Principal>
+      <Dependent Role="PRIME">
+        <PropertyRef Name="MATRECULE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USER_EMP">
+    <End Role="EMPLOYEE" Type="Self.EMPLOYEE" Multiplicity="1" />
+    <End Role="USER" Type="Self.USER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EMPLOYEE">
+        <PropertyRef Name="MATRECULE" />
+      </Principal>
+      <Dependent Role="USER">
+        <PropertyRef Name="MATRECULE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="E_RHModelStoreContainer">
+    <EntitySet Name="ABSENCE" EntityType="Self.ABSENCE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AVIS_DM" EntityType="Self.AVIS_DM" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BULLETIN_DE_PAIE" EntityType="Self.BULLETIN_DE_PAIE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DEMANDE_CONGE" EntityType="Self.DEMANDE_CONGE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DEPART" EntityType="Self.DEPART" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DEPLACEMENT" EntityType="Self.DEPLACEMENT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DOCUMENT" EntityType="Self.DOCUMENT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EMPLOYEE" EntityType="Self.EMPLOYEE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FORMATION" EntityType="Self.FORMATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PRIME" EntityType="Self.PRIME" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USER" EntityType="Self.USER" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ABSENCE_EMPLOYEE" Association="Self.FK_ABSENCE_EMPLOYEE">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+      <End Role="ABSENCE" EntitySet="ABSENCE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_AVIS_DM_DEMANDE_CONGE" Association="Self.FK_AVIS_DM_DEMANDE_CONGE">
+      <End Role="DEMANDE_CONGE" EntitySet="DEMANDE_CONGE" />
+      <End Role="AVIS_DM" EntitySet="AVIS_DM" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BULLETIN_DE_PAIE_EMPLOYEE" Association="Self.FK_BULLETIN_DE_PAIE_EMPLOYEE">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+      <End Role="BULLETIN_DE_PAIE" EntitySet="BULLETIN_DE_PAIE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEMANDE_CONGE_EMPLOYEE" Association="Self.FK_DEMANDE_CONGE_EMPLOYEE">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+      <End Role="DEMANDE_CONGE" EntitySet="DEMANDE_CONGE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEPART_EMPLOYEE" Association="Self.FK_DEPART_EMPLOYEE">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+      <End Role="DEPART" EntitySet="DEPART" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEPLACEMENT_Emp" Association="Self.FK_DEPLACEMENT_Emp">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+      <End Role="DEPLACEMENT" EntitySet="DEPLACEMENT" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PRIME_EMPLOYEE" Association="Self.FK_PRIME_EMPLOYEE">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+      <End Role="PRIME" EntitySet="PRIME" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USER_EMP" Association="Self.FK_USER_EMP">
+      <End Role="EMPLOYEE" EntitySet="EMPLOYEE" />
+      <End Role="USER" EntitySet="USER" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
